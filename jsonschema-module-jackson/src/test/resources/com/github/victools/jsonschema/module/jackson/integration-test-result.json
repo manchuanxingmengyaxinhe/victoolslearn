@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "calculated": {
+            "type": "number",
+            "description": "calculated value from non-getter method",
+            "readOnly": true
+        },
+        "enumValueHandledByStandardOption": {
+            "type": "string",
+            "enum": ["A", "B", "C"]
+        },
+        "enumValueWithJsonPropertyAnnotations": {
+            "type": "string",
+            "enum": ["x_property", "Y"]
+        },
+        "enumValueWithJsonValueAnnotation": {
+            "type": "string",
+            "enum": ["entry1", "entry2", "entry3"]
+        },
+        "fieldWithDescription": {
+            "type": "string",
+            "description": "field description"
+        },
+        "fieldWithOverriddenName": {
+            "type": "boolean",
+            "writeOnly": true
+        }
+    },
+    "description": "test description"
+}

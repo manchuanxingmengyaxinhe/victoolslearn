@@ -1,0 +1,39 @@
+{
+    "definitions": {
+        "Integer-nullable": {
+            "$comment": "custom definition for Integer.class"
+        }
+    },
+    "type": "object",
+    "properties": {
+        "CONSTANT": {
+            "type": "integer",
+            "const": 5
+        },
+        "genericArray": {
+            "type": ["array", "null"],
+            "items": {
+                "type": "string"
+            }
+        },
+        "genericValue": {
+            "type": ["string", "null"]
+        },
+        "ignoredInternalValue": {
+            "$ref": "#/definitions/Integer-nullable"
+        },
+        "primitiveValue": {
+            "type": "integer"
+        },
+        "calculateSomething(Number, Number)": false,
+        "getGenericValue()": {
+            "type": ["string", "null"]
+        },
+        "getPrimitiveValue()": {
+            "type": "integer"
+        },
+        "isSimpleTestClass()": {
+            "type": "boolean"
+        }
+    }
+}

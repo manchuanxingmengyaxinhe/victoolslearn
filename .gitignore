@@ -1,0 +1,48 @@
+######################
+# Eclipse
+######################
+.project
+.metadata
+bin
+tmp
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings
+.loadpath
+
+######################
+# Intellij
+######################
+.idea
+*.iml
+*.iws
+*.ipr
+*.ids
+*.orig
+
+######################
+# NetBeans
+######################
+nb-configuration.xml
+nbactions.xml
+
+######################
+# Maven
+######################
+target
+release.properties
+pom.xml.releaseBackup
+
+######################
+# Slate Docs
+######################
+slate-docs/build
+
+######################
+# OS
+######################
+.DS_Store

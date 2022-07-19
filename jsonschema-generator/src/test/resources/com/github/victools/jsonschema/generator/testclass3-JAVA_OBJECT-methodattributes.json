@@ -1,0 +1,393 @@
+{
+    "definitions": {
+        "Optional(Integer)": {
+            "type": "object",
+            "properties": {
+                "present": {
+                    "type": ["boolean", "null"],
+                    "title": "boolean",
+                    "description": "looked-up from method: boolean"
+                },
+                "get()": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "integer",
+                            "title": "Integer",
+                            "description": "looked-up from method: Integer",
+                            "default": 1,
+                            "enum": [1, 2, 3, 4, 5],
+                            "minimum": 1,
+                            "exclusiveMinimum": 0,
+                            "maximum": 10,
+                            "exclusiveMaximum": 11,
+                            "multipleOf": 1
+                        }]
+                },
+                "orElse(Integer)": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "integer",
+                            "title": "Integer",
+                            "description": "looked-up from method: Integer",
+                            "default": 1,
+                            "enum": [1, 2, 3, 4, 5],
+                            "minimum": 1,
+                            "exclusiveMinimum": 0,
+                            "maximum": 10,
+                            "exclusiveMaximum": 11,
+                            "multipleOf": 1
+                        }]
+                }
+            }
+        },
+        "RoundingMode": {
+            "type": "object",
+            "properties": {
+                "compareTo(RoundingMode)": {
+                    "type": ["integer", "null"],
+                    "title": "int",
+                    "description": "looked-up from method: int"
+                },
+                "name()": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "string",
+                            "title": "String",
+                            "description": "looked-up from method: String",
+                            "const": "constant string value",
+                            "readOnly": true,
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "format": "date",
+                            "pattern": "^.{1,256}$"
+                        }]
+                },
+                "valueOf(String)": {
+                    "allOf": [{
+                            "$ref": "#/definitions/RoundingMode-nullable"
+                        }, {
+                            "title": "RoundingMode",
+                            "description": "looked-up from method: RoundingMode"
+                        }]
+                },
+                "valueOf(int)": {
+                    "allOf": [{
+                            "$ref": "#/definitions/RoundingMode-nullable"
+                        }, {
+                            "title": "RoundingMode",
+                            "description": "looked-up from method: RoundingMode"
+                        }]
+                },
+                "values()": {
+                    "title": "RoundingMode[]",
+                    "description": "looked-up from method: RoundingMode[]",
+                    "minItems": 2,
+                    "maxItems": 100,
+                    "uniqueItems": false,
+                    "type": ["array", "null"],
+                    "items": {
+                        "allOf": [{
+                                "$ref": "#/definitions/RoundingMode-nullable"
+                            }, {
+                                "title": "RoundingMode",
+                                "description": "looked-up from method: RoundingMode"
+                            }]
+                    }
+                }
+            }
+        },
+        "RoundingMode-nullable": {
+            "anyOf": [{
+                    "type": "null"
+                }, {
+                    "$ref": "#/definitions/RoundingMode"
+                }]
+        },
+        "TestClass1": {
+            "type": "object",
+            "properties": {
+                "CONSTANT": {
+                    "type": "integer",
+                    "const": 5
+                },
+                "genericArray": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "genericValue": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "string",
+                            "title": "String",
+                            "description": "looked-up from method: String",
+                            "const": "constant string value",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "format": "date",
+                            "pattern": "^.{1,256}$"
+                        }]
+                },
+                "primitiveValue": {
+                    "type": ["integer", "null"],
+                    "title": "int",
+                    "description": "looked-up from method: int"
+                },
+                "simpleTestClass": {
+                    "type": ["boolean", "null"],
+                    "title": "boolean",
+                    "description": "looked-up from method: boolean"
+                },
+                "calculateSomething(Number, Number)": false
+            }
+        },
+        "TestClass2(Long)-nullable": {
+            "type": ["object", "null"],
+            "properties": {
+                "genericArray": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "genericValue": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "integer",
+                            "title": "Long",
+                            "description": "looked-up from method: Long",
+                            "default": 1,
+                            "enum": [1, 2, 3, 4, 5],
+                            "minimum": 1,
+                            "exclusiveMinimum": 0,
+                            "maximum": 10,
+                            "exclusiveMaximum": 11,
+                            "multipleOf": 1
+                        }]
+                }
+            }
+        },
+        "TestClass2(String)": {
+            "type": "object",
+            "properties": {
+                "genericArray": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "genericValue": {
+                    "anyOf": [{
+                            "type": "null"
+                        }, {
+                            "type": "string",
+                            "title": "String",
+                            "description": "looked-up from method: String",
+                            "const": "constant string value",
+                            "minLength": 1,
+                            "maxLength": 256,
+                            "format": "date",
+                            "pattern": "^.{1,256}$"
+                        }]
+                }
+            }
+        }
+    },
+    "type": "object",
+    "properties": {
+        "class4": {
+            "type": ["object", "null"],
+            "properties": {
+                "DEFAULT_ROUNDING_MODE": {
+                    "allOf": [{
+                            "$ref": "#/definitions/RoundingMode"
+                        }, {
+                            "const": "HALF_UP"
+                        }]
+                },
+                "class2OfClass2OfT": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "genericArray": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/TestClass2(String)"
+                            }
+                        },
+                        "genericValue": {
+                            "anyOf": [{
+                                    "type": "null"
+                                }, {
+                                    "$ref": "#/definitions/TestClass2(String)"
+                                }],
+                            "title": "TestClass2<String>",
+                            "description": "looked-up from method: TestClass2<String>",
+                            "additionalProperties": false,
+                            "patternProperties": {
+                                "^generic.+$": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "title": "TestClass2<TestClass2<String>>",
+                    "description": "looked-up from method: TestClass2<TestClass2<String>>",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^generic.+$": {
+                            "$ref": "#/definitions/TestClass2(String)"
+                        }
+                    }
+                },
+                "listOfOptionalS": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Optional(Integer)"
+                    }
+                },
+                "optionalS": {
+                    "$ref": "#/definitions/Optional(Integer)"
+                },
+                "setOfStringSupplier": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "get()": {
+                                "anyOf": [{
+                                        "type": "null"
+                                    }, {
+                                        "type": "string",
+                                        "title": "String",
+                                        "description": "looked-up from method: String",
+                                        "const": "constant string value",
+                                        "minLength": 1,
+                                        "maxLength": 256,
+                                        "format": "date",
+                                        "pattern": "^.{1,256}$"
+                                    }]
+                            }
+                        }
+                    }
+                },
+                "supplierS": {
+                    "type": "object",
+                    "properties": {
+                        "get()": {
+                            "anyOf": [{
+                                    "type": "null"
+                                }, {
+                                    "type": "integer",
+                                    "title": "Integer",
+                                    "description": "looked-up from method: Integer",
+                                    "default": 1,
+                                    "enum": [1, 2, 3, 4, 5],
+                                    "minimum": 1,
+                                    "exclusiveMinimum": 0,
+                                    "maximum": 10,
+                                    "exclusiveMaximum": 11,
+                                    "multipleOf": 1
+                                }]
+                        }
+                    }
+                }
+            },
+            "title": "TestClass4<Integer, String>",
+            "description": "looked-up from method: TestClass4<Integer, String>",
+            "writeOnly": true,
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "nestedClass1Array": {
+            "type": ["object", "null"],
+            "properties": {
+                "genericArray": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/definitions/TestClass1"
+                        }
+                    }
+                },
+                "genericValue": {
+                    "title": "TestClass1[]",
+                    "description": "looked-up from method: TestClass1[]",
+                    "minItems": 2,
+                    "maxItems": 100,
+                    "uniqueItems": false,
+                    "type": ["array", "null"],
+                    "items": {
+                        "anyOf": [{
+                                "type": "null"
+                            }, {
+                                "$ref": "#/definitions/TestClass1"
+                            }],
+                        "title": "TestClass1",
+                        "description": "looked-up from method: TestClass1",
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^generic.+$": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            },
+            "title": "TestClass2<TestClass1[]>",
+            "description": "looked-up from method: TestClass2<TestClass1[]>",
+            "additionalProperties": false,
+            "patternProperties": {
+                "^generic.+$": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/TestClass1"
+                    }
+                }
+            }
+        },
+        "nestedLong": {
+            "allOf": [{
+                    "$ref": "#/definitions/TestClass2(Long)-nullable"
+                }, {
+                    "title": "TestClass2<Long>",
+                    "description": "looked-up from method: TestClass2<Long>",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^generic.+$": {
+                            "type": "integer"
+                        }
+                    }
+                }]
+        },
+        "nestedLongList": {
+            "title": "List<TestClass2<Long>>",
+            "description": "looked-up from method: List<TestClass2<Long>>",
+            "minItems": 2,
+            "maxItems": 100,
+            "uniqueItems": false,
+            "type": ["array", "null"],
+            "items": {
+                "allOf": [{
+                        "$ref": "#/definitions/TestClass2(Long)-nullable"
+                    }, {
+                        "title": "TestClass2<Long>",
+                        "description": "looked-up from method: TestClass2<Long>",
+                        "additionalProperties": false,
+                        "patternProperties": {
+                            "^generic.+$": {
+                                "type": "integer"
+                            }
+                        }
+                    }]
+            }
+        }
+    }
+}
